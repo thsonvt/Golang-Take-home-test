@@ -1,4 +1,5 @@
 Take-Home Test: Full-Stack Developer (Go & Angular)**
+
 **Objective:**
 The purpose of this take-home test is to evaluate your ability to implement authentication flows using
 
@@ -9,9 +10,13 @@ frontend integration**.
 Requirements
 
 You are required to implement the following features:
+
 **Custom Login Page (MUST)**
+
 Implement a login page using **Angular**, integrating with Ory for authentication.
+
 Capture and store **access tokens** securely in the frontend.
+
 Support refresh tokens for maintaining user sessions.
 
 **Custom Registration Page (MUST)**
