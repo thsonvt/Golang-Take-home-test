@@ -1,58 +1,86 @@
-## Go Developer Take Home Test
-### Objective
-* To create a RESTful API for calculating Scope-2 carbon emissions using provided formulas.
-* Additionally, implement NATS for asynchronous processing of emission data.
-* This test will evaluate your skills in Test-Driven Development (TDD), REST API creation, messaging queue integration, authentication, coding structure, and database design.
-
-* Scope-2 Emission Calculation Formula
-* Scope-2 Emissions (kg CO2) = Electricity Consumption (kWh) × Emission Factor (kg CO2/kWh)
-* Example Emission Factor: 0.417 kg CO2/kWh (this can vary based on location and should be configurable)
-
-### Requirements
-#### Project Setup
-* Use Go (Golang) for development.
-* Use a version control system (preferably Git) and provide a repository link.
-* Use NATS for message queuing.
-* Use Gin as the HTTP web framework.
-* Use SQLBoiler for ORM.
-#### API Endpoints
-* GET /emissions: Retrieves the calculated Scope-2 carbon emissions data. Requires API key authentication.
-*  POST /emissions: Accepts electricity consumption data and triggers emission calculation via NATS. Requires API key authentication.
-#### Authentication
-* Implement API key authentication for securing API endpoints.
-#### Data Model
-* Design a data model to store emissions data. Each record should include:
-
-#### Timestamp
-* Electricity Consumption (kWh)
-* Emission Factor (kg CO2/kWh)
-* Calculated Emissions (kg CO2)
-* Location (optional)
-#### Database
-* Use PostgreSQL for the database.
-* Design and implement the necessary tables to store emission data using SQLBoiler.
-#### NATS Integration
-* Implement a producer to send electricity consumption data to a NATS topic.
-* Implement a consumer to process the topic, calculate emissions, and store the results in the database.
-#### Testing
-* Use Test-Driven Development (TDD) practices.
-* Provide unit tests for the API endpoints and NATS integration.
-* Include integration tests for end-to-end scenarios.
-#### Documentation
-* Provide clear instructions on how to set up and run the project, including NATS and PostgreSQL setup.
-* Document the API endpoints, authentication method, and their usage.
-#### Bonus
-* Implement data validation for electricity consumption inputs.
-* Handle errors gracefully and provide meaningful error messages in the API responses.
-* Implement structured logging for API requests, errors, and NATS message processing.
-* Use Docker to containerize the application, including NATS and PostgreSQL setup.
-#### Evaluation Criteria
-* Code quality and structure
-* Adherence to TDD practices
-* REST API and NATS integration
-* API authentication implementation
-* Database design and implementation using SQLBoiler
-* Documentation clarity and completeness
-#### Submission
-* Create a Private GitHub repository.
-* Add Calvin Cheng (@calvinchengx),  Subhransu Behera (@subhransu), Le Thanh Son (thsonvt) as collaborators so they can review your code.
+Take-Home Test: Full-Stack Developer (Go & Angular)**
+**Objective:**
+The purpose of this take-home test is to evaluate your ability to implement authentication flows using
+**Ory** in a full-stack application built with **Go** for the backend and **Angular** for the frontend.
+The test assesses your skills in **authentication, API development, secure token handling, and
+frontend integration**.
+Requirements
+You are required to implement the following features:
+**Custom Login Page (MUST)**
+Implement a login page using **Angular**, integrating with Ory for authentication.
+Capture and store **access tokens** securely in the frontend.
+Support refresh tokens for maintaining user sessions.
+**Custom Registration Page (MUST)**
+Implement a user registration page using **Angular**, integrating with Ory’s identity management.
+Store new user credentials securely.
+**Backend in Go (MUST)**
+Implement authentication API endpoints in Go using Ory's SDK.
+Handle user sessions securely using **access tokens** and **refresh tokens**.
+Implement a middleware to **protect private routes**.
+**Secure API Route (SHOULD)**
+Implement a protected API endpoint ( `/api/protected` ) that can be accessed only by
+authenticated users.
+**Frontend Token Handling (SHOULD)**
+Store tokens securely in memory or HttpOnly cookies.
+Implement automatic token refresh.
+**Unit and Integration Tests (COULD)**
+Write tests for the authentication API in Go.
+Write frontend tests for login and registration components.
+Method
+**Backend (Go)**
+Use the **Ory Kratos SDK** for authentication.
+Implement API endpoints:
+`POST /api/register` → Handles user registration.
+`POST /api/login` → Handles authentication.
+`GET /api/protected` → Example protected route.
+Use **JWT** for authentication, supporting refresh tokens.
+Middleware to validate and extract the user from tokens.
+Use **Fiber** or **Echo** for the API framework.
+**Frontend (Angular)**
+Build a login and registration UI using **Angular Material**.
+Use the **HttpClient** module to communicate with the Go API.
+Store tokens securely in **HttpOnly cookies**.
+Implement an Angular **Auth Guard** to protect private routes.
+Implement an **interceptor** to attach tokens to API requests.
+**Database**
+Use **PostgreSQL** or **SQLite** to store user data if required.
+Store user sessions securely.
+Use an ORM such as **GORM**.
+**Security Considerations**
+Secure token storage using **HttpOnly cookies**.
+Implement **CORS** to allow frontend-backend communication securely.
+Use **rate limiting** to prevent brute force attacks.
+Ensure **password hashing** using bcrypt.
+Implementation Steps
+1. **Setup Ory Kratos**
+Configure Ory for self-hosted authentication.
+Set up user schemas in Ory.
+2. **Backend Implementation (Go)**
+Create authentication APIs with login and registration.
+Implement JWT-based access and refresh token handling.
+Secure endpoints with middleware.
+3. **Frontend Implementation (Angular)**
+Build login and registration pages.
+Implement token storage and API authentication.
+Protect routes using Angular Guards.
+4. **Testing**
+Write backend unit tests.
+Write frontend component tests.
+Deliverables & Submission Instructions
+To evaluate your implementation, ensure that:
+The login and registration flow work correctly with Ory.
+Tokens are stored and used securely.
+Secure API routes are accessible only when authenticated.
+Basic unit tests pass.
+The code follows clean architecture and best practices.
+**Submission Requirements:**
+A **GitHub repository** containing the full implementation (backend in Go & frontend in Angular).
+**Instructions to run the project** ( `README.md` ).
+API documentation ( `swagger.yaml` or equivalent).
+Any assumptions or design decisions should be documented.
+**GitHub Access:**
+Please create a **private GitHub repository** and add the following users as collaborators so that they
+can review your code:
+**Calvin Cheng (@calvinchengx)**
+**Subhransu Behera (@subhransu)**
+****Le Thanh Son** (@thsonvt)**
