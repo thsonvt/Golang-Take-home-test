@@ -10,14 +10,14 @@ Example Emission Factor: 0.417 kg CO2/kWh (this can vary based on location and s
 
 ### Requirements
 #### Project Setup
-Use Go (Golang) for development.
-Use a version control system (preferably Git) and provide a repository link.
-Use NATS for message queuing.
-Use Gin as the HTTP web framework.
-Use SQLBoiler for ORM.
-API Endpoints
-GET /emissions: Retrieves the calculated Scope-2 carbon emissions data. Requires API key authentication.
-POST /emissions: Accepts electricity consumption data and triggers emission calculation via NATS. Requires API key authentication.
+* Use Go (Golang) for development.
+* Use a version control system (preferably Git) and provide a repository link.
+* Use NATS for message queuing.
+* Use Gin as the HTTP web framework.
+* Use SQLBoiler for ORM.
+#### API Endpoints
+* GET /emissions: Retrieves the calculated Scope-2 carbon emissions data. Requires API key authentication.
+*  POST /emissions: Accepts electricity consumption data and triggers emission calculation via NATS. Requires API key authentication.
 Authentication
 Implement API key authentication for securing API endpoints.
 Data Model
